@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161215202255) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cama_comments", force: :cascade do |t|
     t.string   "author"
     t.string   "author_email"
@@ -26,10 +29,10 @@ ActiveRecord::Schema.define(version: 20161215202255) do
     t.integer  "user_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.index ["approved"], name: "index_cama_comments_on_approved"
-    t.index ["comment_parent"], name: "index_cama_comments_on_comment_parent"
-    t.index ["post_id"], name: "index_cama_comments_on_post_id"
-    t.index ["user_id"], name: "index_cama_comments_on_user_id"
+    t.index ["approved"], name: "index_cama_comments_on_approved", using: :btree
+    t.index ["comment_parent"], name: "index_cama_comments_on_comment_parent", using: :btree
+    t.index ["post_id"], name: "index_cama_comments_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_cama_comments_on_user_id", using: :btree
   end
 
   create_table "cama_custom_fields", force: :cascade do |t|
@@ -43,10 +46,10 @@ ActiveRecord::Schema.define(version: 20161215202255) do
     t.boolean "is_repeat",    default: false
     t.text    "description"
     t.string  "status"
-    t.index ["object_class"], name: "index_cama_custom_fields_on_object_class"
-    t.index ["objectid"], name: "index_cama_custom_fields_on_objectid"
-    t.index ["parent_id"], name: "index_cama_custom_fields_on_parent_id"
-    t.index ["slug"], name: "index_cama_custom_fields_on_slug"
+    t.index ["object_class"], name: "index_cama_custom_fields_on_object_class", using: :btree
+    t.index ["objectid"], name: "index_cama_custom_fields_on_objectid", using: :btree
+    t.index ["parent_id"], name: "index_cama_custom_fields_on_parent_id", using: :btree
+    t.index ["slug"], name: "index_cama_custom_fields_on_slug", using: :btree
   end
 
   create_table "cama_custom_fields_relationships", force: :cascade do |t|
@@ -54,61 +57,61 @@ ActiveRecord::Schema.define(version: 20161215202255) do
     t.integer "custom_field_id"
     t.integer "term_order"
     t.string  "object_class"
-    t.text    "value",             limit: 1073741823
+    t.text    "value"
     t.string  "custom_field_slug"
-    t.integer "group_number",                         default: 0
-    t.index ["custom_field_id"], name: "index_cama_custom_fields_relationships_on_custom_field_id"
-    t.index ["custom_field_slug"], name: "index_cama_custom_fields_relationships_on_custom_field_slug"
-    t.index ["object_class"], name: "index_cama_custom_fields_relationships_on_object_class"
-    t.index ["objectid"], name: "index_cama_custom_fields_relationships_on_objectid"
+    t.integer "group_number",      default: 0
+    t.index ["custom_field_id"], name: "index_cama_custom_fields_relationships_on_custom_field_id", using: :btree
+    t.index ["custom_field_slug"], name: "index_cama_custom_fields_relationships_on_custom_field_slug", using: :btree
+    t.index ["object_class"], name: "index_cama_custom_fields_relationships_on_object_class", using: :btree
+    t.index ["objectid"], name: "index_cama_custom_fields_relationships_on_objectid", using: :btree
   end
 
   create_table "cama_metas", force: :cascade do |t|
     t.string  "key"
-    t.text    "value",        limit: 1073741823
+    t.text    "value"
     t.integer "objectid"
     t.string  "object_class"
-    t.index ["key"], name: "index_cama_metas_on_key"
-    t.index ["object_class"], name: "index_cama_metas_on_object_class"
-    t.index ["objectid"], name: "index_cama_metas_on_objectid"
+    t.index ["key"], name: "index_cama_metas_on_key", using: :btree
+    t.index ["object_class"], name: "index_cama_metas_on_object_class", using: :btree
+    t.index ["objectid"], name: "index_cama_metas_on_objectid", using: :btree
   end
 
   create_table "cama_posts", force: :cascade do |t|
     t.string   "title"
     t.string   "slug"
-    t.text     "content",          limit: 1073741823
-    t.text     "content_filtered", limit: 1073741823
-    t.string   "status",                              default: "published"
+    t.text     "content"
+    t.text     "content_filtered"
+    t.string   "status",           default: "published"
     t.datetime "published_at"
     t.integer  "post_parent"
-    t.string   "visibility",                          default: "public"
+    t.string   "visibility",       default: "public"
     t.text     "visibility_value"
-    t.string   "post_class",                          default: "Post"
-    t.datetime "created_at",                                                null: false
-    t.datetime "updated_at",                                                null: false
+    t.string   "post_class",       default: "Post"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "user_id"
-    t.integer  "post_order",                          default: 0
+    t.integer  "post_order",       default: 0
     t.integer  "taxonomy_id"
-    t.boolean  "is_feature",                          default: false
-    t.index ["post_class"], name: "index_cama_posts_on_post_class"
-    t.index ["post_parent"], name: "index_cama_posts_on_post_parent"
-    t.index ["slug"], name: "index_cama_posts_on_slug"
-    t.index ["status"], name: "index_cama_posts_on_status"
-    t.index ["user_id"], name: "index_cama_posts_on_user_id"
+    t.boolean  "is_feature",       default: false
+    t.index ["post_class"], name: "index_cama_posts_on_post_class", using: :btree
+    t.index ["post_parent"], name: "index_cama_posts_on_post_parent", using: :btree
+    t.index ["slug"], name: "index_cama_posts_on_slug", using: :btree
+    t.index ["status"], name: "index_cama_posts_on_status", using: :btree
+    t.index ["user_id"], name: "index_cama_posts_on_user_id", using: :btree
   end
 
   create_table "cama_term_relationships", force: :cascade do |t|
     t.integer "objectid"
     t.integer "term_order"
     t.integer "term_taxonomy_id"
-    t.index ["objectid"], name: "index_cama_term_relationships_on_objectid"
-    t.index ["term_order"], name: "index_cama_term_relationships_on_term_order"
-    t.index ["term_taxonomy_id"], name: "index_cama_term_relationships_on_term_taxonomy_id"
+    t.index ["objectid"], name: "index_cama_term_relationships_on_objectid", using: :btree
+    t.index ["term_order"], name: "index_cama_term_relationships_on_term_order", using: :btree
+    t.index ["term_taxonomy_id"], name: "index_cama_term_relationships_on_term_taxonomy_id", using: :btree
   end
 
   create_table "cama_term_taxonomy", force: :cascade do |t|
     t.string   "taxonomy"
-    t.text     "description", limit: 1073741823
+    t.text     "description"
     t.integer  "parent_id"
     t.integer  "count"
     t.string   "name"
@@ -116,14 +119,14 @@ ActiveRecord::Schema.define(version: 20161215202255) do
     t.integer  "term_group"
     t.integer  "term_order"
     t.string   "status"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.index ["parent_id"], name: "index_cama_term_taxonomy_on_parent_id"
-    t.index ["slug"], name: "index_cama_term_taxonomy_on_slug"
-    t.index ["taxonomy"], name: "index_cama_term_taxonomy_on_taxonomy"
-    t.index ["term_order"], name: "index_cama_term_taxonomy_on_term_order"
-    t.index ["user_id"], name: "index_cama_term_taxonomy_on_user_id"
+    t.index ["parent_id"], name: "index_cama_term_taxonomy_on_parent_id", using: :btree
+    t.index ["slug"], name: "index_cama_term_taxonomy_on_slug", using: :btree
+    t.index ["taxonomy"], name: "index_cama_term_taxonomy_on_taxonomy", using: :btree
+    t.index ["term_order"], name: "index_cama_term_taxonomy_on_term_order", using: :btree
+    t.index ["user_id"], name: "index_cama_term_taxonomy_on_user_id", using: :btree
   end
 
   create_table "cama_users", force: :cascade do |t|
@@ -145,10 +148,10 @@ ActiveRecord::Schema.define(version: 20161215202255) do
     t.boolean  "is_valid_email",         default: true
     t.string   "first_name"
     t.string   "last_name"
-    t.index ["email"], name: "index_cama_users_on_email"
-    t.index ["role"], name: "index_cama_users_on_role"
-    t.index ["site_id"], name: "index_cama_users_on_site_id"
-    t.index ["username"], name: "index_cama_users_on_username"
+    t.index ["email"], name: "index_cama_users_on_email", using: :btree
+    t.index ["role"], name: "index_cama_users_on_role", using: :btree
+    t.index ["site_id"], name: "index_cama_users_on_site_id", using: :btree
+    t.index ["username"], name: "index_cama_users_on_username", using: :btree
   end
 
   create_table "plugins_contact_forms", force: :cascade do |t|
