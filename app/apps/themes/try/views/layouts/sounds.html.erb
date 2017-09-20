@@ -14,66 +14,29 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400, 600" rel="stylesheet">
     <%= favicon_link_tag "logo_square.jpg" %>
     <!-- <link rel="logo_square.jpg" href="/apps/themes/try/assets/images/logo_square.jpg"/> -->
+    <title>Sound-Logistics</title>
 </head>
 <body>
   <div class="header">
     <div class="container">
       <%= link_to image_tag('logo_square.jpg'), '/', id: 'logo'%>
-      <!-- <ul class="nav">
+<!--       <ul class="nav">
         <li>About</li>
         <li>Work</li>
         <li>Team</li>
         <li>Contact</li>
-      </ul>
+      </ul> -->
       <div class="menu-menu-1-container" style="float: left;">
-        <%= raw get_nav_menu('main_menu', 'nav navbar-nav nav-menu') %>
-      </div> -->
+        <%= raw get_nav_menu('sound-menu', 'nav navbar-nav nav-menu') %>
+      </div>
     </div>
   </div>
-  <!-- <div class="actions">
-    <span1>
-      <a href="#">Sound</a>
-    </span>
-    <span>
-      <a href="#">Logistic</a>
-    </span>
-  </div> -->
-
-<!--
-<section class="container">
-  <div class="left-half">
-    <div>
-      <%= raw get_nav_menu('main_menu', 'nav') %>
-    </div>
-    <article>
-      <h1>Sound</h1>
-      <p>Weekends don't count unless you spend them doing something completely pointless.</p>
-    </article>
-  </div>
-  <div class="right-half">
-    <article>
-      <h1>Logistic</h1>
-      <p>If your knees aren't green by the end of the day, you ought to seriously re-examine your life.</p>
-    </article>
-  </div>
-</section> -->
-
-
 
   <div id="page" class="hfeed site">
         <!-- header -->
         <header id="masthead" class="site-header" role="banner">
-<!--             <a class="home-link" href="<%= current_site.the_url %>" title="<%= current_site.the_title %>" rel="home">
-                <h1 class="site-title"><%= current_site.the_title %></h1>
-                <h2 class="site-description"><%= current_site.the_content %></h2>
-            </a> -->
-
             <div id="navbar" class="navbar">
                 <nav id="site-navigation" class="navigation main-navigation" role="navigation">
-                    <div class="menu-menu-1-container" style="float: left;">
-                        <%= raw get_nav_menu('main_menu', 'nav navbar-nav nav-menu') %>
-                    </div>
-
                     <div style="">
                         <%= render partial: 'partials/search_form' %>
 <!--                         <ul class="nav navbar-nav nav-menu" style="float: right;">

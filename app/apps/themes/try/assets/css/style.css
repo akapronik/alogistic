@@ -60,11 +60,13 @@ html, body, section {
   height: 100%;
 }
 body {
+  background: linear-gradient(to right,white, black);
   color: black;
   font-family: sans-serif;
   font-size: 1.25rem;
   line-height: 150%;
   text-align: center;
+
 }
 
 .header {
@@ -89,18 +91,32 @@ body {
   font-size: 12px;
   margin-right: 25px;
   text-transform: uppercase;
+
 }
 
 div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
-h1 {
-  font-size: 1.75rem;
+h1, a {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 4.75rem;
   margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  text-decoration: none;
 }
+
+h1:hover {
+  text-decoration: none;
+  text-shadow: white 0px 0px 10px;
+  font-size: 5rem;
+  transition: 0.1s;
+}
+
 
 /* Pattern styles */
 .container {
@@ -108,13 +124,13 @@ h1 {
 }
 
 .left-half {
-  background-color: #fff;
+  /*background-color: #fff;*/
   flex: 1;
   padding: 1rem;
 }
 
 .right-half {
-  background-color: grey;
+  /*background-color: grey;*/
   flex: 1;
   padding: 1rem;
 }
