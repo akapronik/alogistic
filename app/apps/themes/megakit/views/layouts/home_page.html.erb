@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META SECTION -->
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- END META SECTION -->
+    <%#= javascript_include_tag theme_asset_path("js/main.js") %>
+    <%= stylesheet_link_tag theme_asset_path("css/main.css") %>
+    <!-- <%= stylesheet_link_tag theme_asset_path("genericons/genericons.css") %>
+    <%= javascript_include_tag theme_asset_path("js/main.js") %>
+    <%= raw the_head %> -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400, 600" rel="stylesheet">
+    <%= favicon_link_tag "logo_square.jpg" %>
+    <!-- <link rel="logo_square.jpg" href="/apps/themes/try/assets/images/logo_square.jpg"/> -->
+    <title>Sound-Logistics</title>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <%= link_to image_tag('logo_square.jpg'), cama_root_path, id: 'logo'%>
+    </div>
+  </div>
+<section class="container">
+  <div class="left-half">
+    <article>
+      <%= link_to cama_post_path(I18n.locale, 'sound') do %>
+        <h1>Sound</h1>
+      <%end%>
+    </article>
+  </div>
+  <div class="right-half">
+    <article>
+      <%= link_to '/logistics' do %>
+        <h1>Logistic</h1>
+      <%end%>
+    </article>
+  </div>
+</section>

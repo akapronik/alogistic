@@ -1,0 +1,136 @@
+/*html, body {
+  margin: 0;
+  padding: 0;
+}*/
+
+#logo{
+  display: block;
+  margin: 0 auto;
+}
+/*.container {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 10px;
+  }
+  .nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px 0;
+}
+.nav li {
+  color: #fff;
+  display: inline;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin-right: 25px;
+  text-transform: uppercase;
+}
+.header {
+  background-color: black;
+  width: 100%;
+  position: fixed;
+  top:0px;
+  left: 0px;
+  z-index:10000;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.actions a {
+  color: #333;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 72px;
+  letter-spacing: 1.3px;
+  padding: 16px 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display:inline-block;
+  margin:100px;
+}*/
+
+
+
+
+html, body, section {
+  height: 100%;
+}
+body {
+  background: linear-gradient(to right,white, black);
+  color: black;
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  line-height: 150%;
+  text-align: center;
+
+}
+
+.header {
+  background-color: black;
+  width: 100%;
+  position: fixed;
+  top:0px;
+  left: 0px;
+  z-index:10000;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px 0;
+}
+.nav li {
+  color: #fff;
+  display: inline;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin-right: 25px;
+  text-transform: uppercase;
+
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+h1, a {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 4.75rem;
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+h1:hover {
+  text-decoration: none;
+  text-shadow: white 0px 0px 10px;
+  font-size: 5rem;
+  transition: 0.1s;
+}
+
+
+/* Pattern styles */
+.container {
+  display: flex;
+}
+
+.left-half {
+  /*background-color: #fff;*/
+  flex: 1;
+  padding: 1rem;
+}
+
+.right-half {
+  /*background-color: grey;*/
+  flex: 1;
+  padding: 1rem;
+}
