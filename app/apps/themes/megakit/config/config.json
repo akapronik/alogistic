@@ -7,7 +7,7 @@
   ],
 
   "helpers": [
-    "Themes::Default::MegakittHelper"
+    "Themes::Default::DefaultHelper"
   ],
   "hooks": {
     "on_theme_settings": [
