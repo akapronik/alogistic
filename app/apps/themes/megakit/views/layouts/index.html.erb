@@ -26,8 +26,8 @@
         <link href="css/global/global.css" rel="stylesheet" type="text/css"/>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+        <link rel="sl-logo.svg" href="logo.svg" type="image/x-icon">
+        <link rel="sl-logo.svg" href="logo.svg">
     <!-- META SECTION -->
     <!-- <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -38,9 +38,9 @@
     <!-- <%= stylesheet_link_tag theme_asset_path("genericons/genericons.css") %>
     <%= javascript_include_tag theme_asset_path("js/main.js") %>
     <%= raw the_head %> -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400, 600" rel="stylesheet">
-    <%= favicon_link_tag "logo_square.jpg" %> -->
-    <!-- <link rel="logo_square.jpg" href="/apps/themes/try/assets/images/logo_square.jpg"/> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400, 600" rel="stylesheet"> -->
+    <%= favicon_link_tag "sl-logo.svg" %>
+    <!-- <link rel="sl-logo.svg" href="sl-logo.svg"/> -->
 </head>
 <body>
 
@@ -53,7 +53,7 @@
                         <div class="s-header__navbar-row-col">
                             <!-- Logo -->
                             <div class="s-header__logo">
-                                <%= link_to image_tag('logo_square.jpg'), cama_root_path, id: 'logo'%>
+                                <%= link_to image_tag('sl-logo.svg'), cama_root_path, id: 'logo'%>
                             </div>
                             <!-- End Logo -->
                         </div>
@@ -82,7 +82,7 @@
                             <% if item[:levels] <= 1 %>
                                 <ul class="list-unstyled s-header__nav-menu">
 
-                                    <!-- <% binding.pry%> -->
+
                                     <li class="s-header__nav-menu-item">
                                         <a href="#" class="s-header__nav-menu-link "><%= item[:label] %></a>
                                         <% item[:children].each_with_index do |ss_item, index| %>
